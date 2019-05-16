@@ -8,7 +8,7 @@ class ReservationForm extends Component {
             name: '',
             date: '',
             time: '',
-            number: 0,
+            number: ''
 
         }
     }
@@ -50,8 +50,8 @@ class ReservationForm extends Component {
                 onChange={this.handleChange}
                 />
                 <input 
-                type="number"
-                value={this.state.number}
+                type="text"
+                value= {this.state.number}
                 placeholder="Number of guests"
                 onChange={this.handleChange}
                 name='guests'

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import ReservationForm from './ReservationForm';
 import ReservationContainer from './ReservationContainer';
-// import apiCalls from './apiCalls';
 
 class App extends Component {
   constructor() {
@@ -17,7 +16,15 @@ class App extends Component {
     fetch('http://localhost:3001/api/v1/reservations')
     .then(response => response.json())
     .catch(error => console.log('Error fetching reservation data', error))
-    .then(result => this.setState({ reservations: {...result}}))
+    .then(result => this.setState({ reservations: [...result]}))
+  }
+
+  addReservation =(reservation) => {
+    const newReservation = {...reservation, id:Date.now()}
+    const reservations = {...this.state.reservations, newReservation}
+    this.setState({
+      reservations
+    })
   }
 
   // deleteReservation =() => {
