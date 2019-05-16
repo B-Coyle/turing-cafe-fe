@@ -8,7 +8,7 @@ class ReservationForm extends Component {
             name: '',
             date: '',
             time: '',
-            number: 0
+            number: 1
         }
     }
 
@@ -56,6 +56,7 @@ class ReservationForm extends Component {
                 placeholder="Number of guests"
                 onChange={this.handleChange}
                 name='guests'
+                min="1"
                 />
                 <button>Make Reservation</button>
             </form>
