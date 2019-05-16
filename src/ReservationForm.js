@@ -8,13 +8,17 @@ class ReservationForm extends Component {
             name: '',
             date: '',
             time: '',
-            guests: 0
+            number: 0
 
         }
     }
 
-    handleChange=()=>{
-        
+    handleChange=(e)=>{
+        const {name, value} = e.target
+        this.setState({
+            [name]: value
+        })
+
     }
 
     handleSubmit=()=>{
@@ -23,16 +27,35 @@ class ReservationForm extends Component {
 
     render(){
         return(
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <input 
                     type="text"
                     value={this.state.name}
                     placeholder='Name'
-                    onClick={this.handleChange}
+                    onChange={this.handleChange}
+                    name='name'
                 />
-                <input />
-                <input />
-                <input />
+                <input 
+                type="text"
+                value={this.state.date}
+                placeholder="Date (mm/dd)"
+                name='date'
+                onChange={this.handleChange}
+                />
+                <input 
+                type='text'
+                value={this.state.time}
+                placeholder="Time"
+                name="time"
+                onChange={this.handleChange}
+                />
+                <input 
+                type="number"
+                value={this.state.number}
+                placeholder="Number of guests"
+                onChange={this.handleChange}
+                name='guests'
+                />
                 <button>Make Reservation</button>
             </form>
         )
