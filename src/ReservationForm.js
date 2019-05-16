@@ -8,7 +8,7 @@ class ReservationForm extends Component {
             name: '',
             date: '',
             time: '',
-            number: 0
+            number: 0,
 
         }
     }
