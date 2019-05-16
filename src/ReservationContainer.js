@@ -1,13 +1,16 @@
 import React from 'react';
-import ReservationCard from 'ReservationCard';
+import ReservationCard from './ReservationCard';
 
-
-const ReservationContainer = () =>{
+const ReservationContainer = ({reservations})=>{
+    const reservationCards = reservations.map(reservation => (
+        <ReservationCard {...reservation} />
+    ))
 
     return(
-        <div>Test</div>
+        <main>
+        {reservationCards}
+        </main>
     )
 }
 
-export default ReservationCard;
-
+export default ReservationContainer
