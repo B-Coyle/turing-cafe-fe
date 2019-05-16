@@ -8,8 +8,7 @@ class ReservationForm extends Component {
             name: '',
             date: '',
             time: '',
-            number: ''
-
+            number: 0
         }
     }
 
@@ -21,7 +20,9 @@ class ReservationForm extends Component {
 
     }
 
-    handleSubmit=()=>{
+    handleSubmit=(event)=>{
+        event.preventDefault()
+        this.props.addReservation(this.state)
 
     }
 
@@ -50,7 +51,7 @@ class ReservationForm extends Component {
                 onChange={this.handleChange}
                 />
                 <input 
-                type="text"
+                type="number"
                 value= {this.state.number}
                 placeholder="Number of guests"
                 onChange={this.handleChange}
